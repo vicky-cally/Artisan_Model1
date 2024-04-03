@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artisan Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 {
+            text-align: center;
+            color: #336600; /* Dark green */
+            margin-bottom: 20px;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .profile-container {
+            background-color: #e6ffe6; /* Light green */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 1200px; /* Adjusted max-width */
+            display: flex;
+            align-items: center; /* Vertically center the content */
+            justify-content: space-between; /* Add space between image and profile details */
+        }
+        .profile-details {
+            width: 100%; /* Set width to 100% */
+            padding: 20px; /* Add padding for spacing */
+            background-color: #e6ffe6; /* Light green */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .profile-details h2 {
+            font-size: 28px;
+            color: #333; /* Dark gray */
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .profile-details p {
+            font-size: 16px;
+            color: #666; /* Medium gray */
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .profile-details strong {
+            font-weight: bold;
+            color: #336600; /* Dark green */
+        }
+        .profile-image img {
+            width: auto; /* Allow the width to adjust automatically */
+            height: 100%; /* Stretch the image vertically to cover the available space */
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Artisan Profile</h1>
+    <div class="profile-container">
+        <div class="profile-image">
+            {% if artisan.Skill_Type == 'Electrician' %}
+                <img src="{{ url_for('static', filename='Electrician.jpg') }}" alt="Electrician Image">
+            {% elif artisan.Skill_Type == 'Plumber' %}
+                <img src="{{ url_for('static', filename='Plumber.jpg') }}" alt="Plumber Image">
+            {% elif artisan.Skill_Type == 'Carpenter' %}
+                <img src="{{ url_for('static', filename='Carpenter.jpg') }}" alt="Carpenter Image">
+            {% elif artisan.Skill_Type == 'Painter' %}
+                <img src="{{ url_for('static', filename='Painter.jpg') }}" alt="Painter Image">
+            {% elif artisan.Skill_Type == 'Tiler' %}
+                <img src="{{ url_for('static', filename='Tiler.jpg') }}" alt="Tiler Image">
+            {% elif artisan.Skill_Type == 'Welder' %}
+                <img src="{{ url_for('static', filename='Welder.jpg') }}" alt="Welder Image">
+            {% elif artisan.Skill_Type == 'Mechanic' %}
+                <img src="{{ url_for('static', filename='Mechanic.jpg') }}" alt="Mechanic Image">
+            {% elif artisan.Skill_Type == 'Tailor' %}
+                <img src="{{ url_for('static', filename='Tailor.jpg') }}" alt="Tailor Image">
+            {% elif artisan.Skill_Type == 'Hairdresser' %}
+                <img src="{{ url_for('static', filename='Hairdresser.jpg') }}" alt="Hairdresser Image">
+            {% elif artisan.Skill_Type == 'Caterer' %}
+                <img src="{{ url_for('static', filename='Caterer.jpg') }}" alt="Caterer Image">
+            {% elif artisan.Skill_Type == 'Graphic Designer' %}
+                <img src="{{ url_for('static', filename='Graphic Designer.jpg') }}" alt="Graphic Designer Image">
+            {% elif artisan.Skill_Type == 'Photographer' %}
+                <img src="{{ url_for('static', filename='Photographer.jpg') }}" alt="Photographer Image">
+            {% elif artisan.Skill_Type == 'Event Planner' %}
+                <img src="{{ url_for('static', filename='Event Planner.jpg') }}" alt="Event Planner Image">
+            {% elif artisan.Skill_Type == 'Gardener' %}
+                <img src="{{ url_for('static', filename='Gardener.jpg') }}" alt="Gardener Image">
+            {% elif artisan.Skill_Type == 'Interior Decorator' %}
+                <img src="{{ url_for('static', filename='Interior Decorator.jpg') }}" alt="Interior Decorator Image">
+            {% elif artisan.Skill_Type == 'Furniture Maker' %}
+                <img src="{{ url_for('static', filename='Furniture Maker.jpg') }}" alt="Furniture Maker Image">
+            {% elif artisan.Skill_Type == 'Shoe Cobbler' %}
+                <img src="{{ url_for('static', filename='Shoe Cobbler.jpg') }}" alt="Shoe Cobbler Image">
+            {% elif artisan.Skill_Type == 'Barber' %}
+                <img src="{{ url_for('static', filename='Barber.jpg') }}" alt="Barber Image">
+            {% elif artisan.Skill_Type == 'Makeup Artist' %}
+                <img src="{{ url_for('static', filename='Makeup Artist.jpg') }}" alt="Makeup Artist Image">
+            {% elif artisan.Skill_Type == 'Dressmaker' %}
+                <img src="{{ url_for('static', filename='Dressmaker.jpg') }}" alt="Dressmaker Image">
+            {% else %}
+                <img src="{{ url_for('static', filename='default.jpg') }}" alt="Default Image">
+            {% endif %}
+        </div>
+        <div class="profile-details">
+            <h2>{{ artisan.Artisan_Name }}</h2>
+            <p><strong>ID:</strong> {{ artisan.Artisan_ID }}</p>
+            <p><strong>Age:</strong> {{ artisan.Artisan_Age }}</p>
+            <p><strong>Skill Type:</strong> {{ artisan.Skill_Type }}</p>
+            <p><strong>Gender:</strong> {{ artisan.Artisan_Gender }}</p>
+            <p><strong>State:</strong> {{ artisan.Artisan_State }}</p>
+            <p><strong>Local Government Area:</strong> {{ artisan.Artisan_Local_Government_Area }}</p>
+            <p><strong>Email:</strong> {{ artisan.Artisan_Email_Address }}</p>
+            <p><strong>Phone Number:</strong> {{ artisan.Artisan_Phone_Number }}</p>
+            <p><strong>Facebook:</strong> {{ artisan.Facebook_Handle }}</p>
+            <p><strong>Instagram:</strong> {{ artisan.Instagram_Handle }}</p>
+            <p><strong>Twitter:</strong> {{ artisan.Twitter_Handle }}</p>
+            <p><strong>LinkedIn:</strong> {{ artisan.LinkedIn_Handle }}</p>
+            <p><strong>Experience:</strong> {{ artisan.Experience }}</p>
+            <p><strong>Languages:</strong> {{ artisan.Languages }}</p>
+        </div>
+    </div>
+</body>
+</html>
